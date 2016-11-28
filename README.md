@@ -28,7 +28,10 @@ export class GithubService{
             return this._http.get('http://api.github.com/users/'+this.username+'/repos?client_id='+this.client_Id+'&client_secret='+this.client_secret)
                 .map(res => res.json());
         }
-        
+        //Method that updated the user when start typing in the search bar
+        updateUser(username: string){
+            this.username = username;
+        }
     }
     
    
