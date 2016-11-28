@@ -18,6 +18,17 @@ export class GithubService{
     constructor(private _http: Http){
         console.log('Github Service Ready...');
         this.username = 'pevargasg';
+        //Retriving User
+        getUser(){
+            return this._http.get('http://api.github.com/users/'+this.username+'?client_id='+this.client_Id+'&client_secret='+this.client_secret)
+            .map(res => res.json());
+        }
+        //Retriving repos
+        getRepos(){
+            return this._http.get('http://api.github.com/users/'+this.username+'/repos?client_id='+this.client_Id+'&client_secret='+this.client_secret)
+                .map(res => res.json());
+        }
+        
     }
     
    
